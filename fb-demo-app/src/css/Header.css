@@ -1,0 +1,47 @@
+.App-header {
+  background-color: navy;
+}
+.App-header-right {
+  background: transparent;
+  align-content: right;
+}
+.App-header-left {
+  background: transparent;
+  align-content: left;
+}
+.App-logo {
+  height: 4rem;
+}
+.App-userlogo {
+  height: 4rem;
+  background: silver;
+}
+.App-notification {
+  height: 2rem;
+}
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  .header-right {
+    float: none;
+  }
+}
+.item {
+  position: absolute;
+}
+.notify-badge {
+  position: relative;
+  right: -50px;
+  top: -13px;
+  bottom: 50px;
+  background: red;
+  text-align: center;
+  border-radius: 3px;
+  color: white;
+  padding: 5px 10px;
+  font-size: 2px;
+}

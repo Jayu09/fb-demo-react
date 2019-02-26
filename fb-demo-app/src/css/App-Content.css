@@ -1,0 +1,49 @@
+.App-middle {
+	padding: 1%;
+	border-inline-start: slategray double;
+	border-inline-end: slategray double;
+	scroll-behavior: smooth;
+	background: gray;
+}
+.App-Add-Post {
+	background: navy;
+	top: 2;
+	left: 0;
+	padding: 1%;
+	width: 100%;
+	height: 200px;
+	align-content: flex-start;
+}
+
+.App-TimeLine {
+	margin-left: 0%;
+	margin-top: 0%;
+	height: 465px;
+}
+
+.App-Content {
+	word-wrap: break-word;
+}
+
+.App-Submit {
+	left: 6%;
+	align-content: center;
+	height: 1%;
+	padding: 2%;
+	width: 50%;
+}
+
+.App-Text-Area {
+	width: 80%;
+	height: 90%;
+	border-radius: 10px;
+}
+.App-Button-Group {
+	top: 0;
+	position: absolute;
+	margin-top: 5%;
+	margin-right: 5%;
+	margin-left: 78.5%;
+	width: 18%;
+	height: 90%;
+}

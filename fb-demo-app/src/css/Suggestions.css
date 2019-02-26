@@ -1,0 +1,46 @@
+.App-right {
+	border-inline-end: slategray double;
+	padding: 1%;
+	margin-right: 0%;
+	margin-left: 80%;
+	position: fixed;
+	width: 20%;
+	height: 100%;
+	opacity: 0.7;
+	scroll-behavior: smooth;
+	background: whitesmoke;
+}
+.App-list {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	margin-top: 10%;
+	width: 80%;
+	height: 5vmin;
+	right: 2vmin;
+	background: white;
+	opacity: 1;
+}
+
+.App-Suggestions {
+	margin-left: calc(0%);
+	margin-top: calc(0%);
+	height: 630px;
+	width: calc(110%);
+}
+
+.App-user-logo {
+	position: absolute;
+	height: 5vh;
+	width: 5vw;
+	left: 0%;
+	pointer-events: none;
+	background: silver;
+}
+.App-user-request {
+	position: absolute;
+	height: 5vmin;
+	right: 0%;
+	pointer-events: none;
+	background: silver;
+}

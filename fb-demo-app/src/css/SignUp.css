@@ -1,0 +1,11 @@
+.label {
+  font: 1.2em sans-serif;
+  color: black;
+}
+.signUp {
+  position: fixed;
+  margin-top: 20vh;
+  border-radius: 25px;
+  background: royalblue;
+  opacity: 0.8;
+}

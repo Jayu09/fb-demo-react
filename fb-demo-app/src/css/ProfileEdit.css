@@ -1,0 +1,11 @@
+.App-left {
+	padding: 1%;
+	border-inline-start: slategray double;
+	background: whitesmoke;
+}
+.App-profilePicture {
+	pointer-events: visibleFill;
+	right: 8px;
+	background: silver;
+	margin: auto;
+}

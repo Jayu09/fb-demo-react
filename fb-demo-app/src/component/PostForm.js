@@ -41,19 +41,13 @@ class PostForm extends Component {
 					name="content"
 				/>
 				<div className="App-Button-Group ">
-					<input
-						style={{ display: "none" }}
-						type="file"
-						onChange={this.addImage}
-						ref={fileInput => (this.fileInput = fileInput)}
-					/>
-					<button
-						className="ml-3 btn btn-primary"
-						onClick={e => this.fileInput.click()}
-					>
-						Add Image
-					</button>
 					<div className="ml-3 mb-1 mt-1 mr-5 btn btn-sm bg-light custom-control custom-switch">
+						<label
+							className="custom-control-label font-light m-0 p-0"
+							htmlFor="customSwitch1"
+						>
+							Private
+						</label>
 						<input
 							type="checkbox"
 							name="privacy"
@@ -61,13 +55,19 @@ class PostForm extends Component {
 							className="custom-control-input m-0 p-0"
 							id="customSwitch1"
 						/>
-						<label
-							className="custom-control-label font-light m-0 p-0"
-							htmlFor="customSwitch1"
-						>
-							Private
-						</label>
 					</div>
+					<input
+						style={{ display: "none" }}
+						type="file"
+						onChange={this.addImage}
+						ref={fileInput => (this.fileInput = fileInput)}
+					/>
+					<button
+						className="ml-3 mb-1 mt-1 mr-5  btn btn-primary"
+						onClick={e => this.fileInput.click()}
+					>
+						Add Image
+					</button>
 					<button
 						className="ml-3 btn btn-primary"
 						type="submit"

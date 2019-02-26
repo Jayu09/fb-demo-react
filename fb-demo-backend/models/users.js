@@ -21,10 +21,22 @@ const freindSchema = new schema({
 		type: String,
 		require: true
 	},
-	profileId: {
+	email: {
 		type: String,
-		require: true
-	}
+		require: true,
+		lowercase: true,
+		unique: true,
+		index: true
+	},
+	address: {
+		type: String
+	},
+	contact: {
+		type: String
+	},
+	image: {
+		type: String
+  }
 });
 const userSchema = new schema({
 	name: {
@@ -53,7 +65,6 @@ const userSchema = new schema({
 		type: String
 	}
 });
-
 userSchema.pre("save", async function(next) {
 	try {
 		const salt = await bcrypt.genSalt(10);

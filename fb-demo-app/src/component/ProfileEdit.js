@@ -1,7 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
+import Modal from "react-responsive-modal";
 
-export default class ProfileEdit extends Component {
+export default class App extends React.Component {
 	state = {
+		open: false,
 		name: "",
 		contact: "",
 		address: "",
@@ -23,103 +25,86 @@ export default class ProfileEdit extends Component {
 		this.props.updateUser(user);
 		window.location.reload();
 	};
+	onOpenModal = () => {
+		this.setState({ open: true });
+	};
+	onCloseModal = () => {
+		this.setState({ open: false });
+	};
 	render() {
+		const { open } = this.state;
 		return (
 			<div>
 				<button
-					type="button"
+					onClick={this.onOpenModal}
 					className="btn btn-outline-light"
-					data-toggle="modal"
-					data-target="#update"
 				>
 					Edit Profile
 				</button>
-
-				<div
-					className="modal"
-					id="update"
-					tabIndex="-1"
-					role="dialog"
-					aria-labelledby="exampleModalLabel"
-				>
-					<div
-						className="modal-dialog modal-dialog-centered"
-						role="document"
-					>
-						<div className="modal-content ">
-							<div className="modal-header bg-primary">
-								<h5 className="modal-title" id="exampleModalLabel">
-									Update Profile
-								</h5>
-								<button
-									type="button"
-									className="close"
-									data-dismiss="modal"
-									aria-label="Close"
-								>
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div>
-								<div>
-									name :
-									<input
-										className="m-1 p-1"
-										type="text"
-										name="name"
-										onChange={this.change}
-									/>
-								</div>
-								<div>
-									contact:
-									<input
-										className="m-1 p-1"
-										type="text"
-										name="contact"
-										onChange={this.change}
-									/>
-								</div>
-								<div>
-									address:
-									<input
-										className="m-1 p-1"
-										type="text"
-										name="address"
-										onChange={this.change}
-									/>
-								</div>
-							</div>
-							<div className="modal-footer bg-primary">
-								<input
-									style={{ display: "none" }}
-									type="file"
-									onChange={this.addImage}
-									ref={fileInput => (this.fileInput = fileInput)}
-								/>
-								<button
-									className="btn btn-primary"
-									onClick={e => this.fileInput.click()}
-								>
-									Edit Profile Image
-								</button>
-								<button
-									type="submit"
-									className="m-1 p-1 btn btn-primary"
-									onClick={this.handleClick}
-								>
-									Update Profile
-								</button>
-								<button
-									type="button"
-									className="btn btn-secondary"
-									data-dismiss="modal"
-								>
-									Close
-								</button>
-							</div>
+				<Modal open={open} onClose={this.onCloseModal} center>
+					<div className="modal-header bg-primary">
+						<h5 className="modal-title" id="exampleModalLabel">
+							Update Profile
+						</h5>
+					</div>
+					<div>
+						<div>
+							name :
+							<input
+								className="m-1 p-1"
+								type="text"
+								name="name"
+								onChange={this.change}
+							/>
+						</div>
+						<div>
+							contact:
+							<input
+								className="m-1 p-1"
+								type="text"
+								name="contact"
+								onChange={this.change}
+							/>
+						</div>
+						<div>
+							address:
+							<input
+								className="m-1 p-1"
+								type="text"
+								name="address"
+								onChange={this.change}
+							/>
 						</div>
 					</div>
-				</div>
+					<div className="modal-footer bg-primary">
+						<input
+							style={{ display: "none" }}
+							type="file"
+							onChange={this.addImage}
+							ref={fileInput => (this.fileInput = fileInput)}
+						/>
+						<button
+							className="btn btn-primary"
+							onClick={e => this.fileInput.click()}
+						>
+							Edit Profile Image
+						</button>
+						<button
+							type="submit"
+							className="m-1 p-1 btn btn-primary"
+							onClick={this.handleClick}
+						>
+							Update Profile
+						</button>
+						<button
+							type="button"
+							className="btn btn-secondary"
+							onClick={this.onCloseModal}
+						>
+							Close
+						</button>
+					</div>
+				</Modal>
 			</div>
 		);
 	}

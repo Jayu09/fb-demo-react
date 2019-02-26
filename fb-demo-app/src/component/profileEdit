@@ -1,0 +1,28 @@
+<Modal open={open} onClose={this.onCloseModal} center>
+					<div className="modal-header bg-primary">
+						<h5 className="modal-title" id="exampleModalLabel">
+							Update Profile
+						</h5>
+					</div>
+					<div>
+						<input
+							style={{ display: "none" }}
+							type="file"
+							onChange={this.addImage}
+							ref={fileInput => (this.fileInput = fileInput)}
+						/>
+						<button
+							className="btn btn-primary"
+							onClick={e => this.fileInput.click()}
+						>
+							Edit Profile Image
+						</button>
+						<button
+							type="submit"
+							className="m-1 p-1 btn btn-primary"
+							onClick={this.handleClick}
+						>
+							Update Profile
+						</button>
+					</div>
+				</Modal>

@@ -83,33 +83,57 @@ module.exports = {
 	},
 	responceRequest: async (req, res, next) => {
 		try {
+			friend = await users.find({ email: req.body.email });
+			const acceptNot = req.user.notification.filter(
+				obj =>
+					obj.profileId === req.body.email
+			);
 			await users.findOneAndUpdate(
 				{ _id: req.user._id },
 				{
 					$pull: {
 						notification: {
 							profileId: req.body.email,
-							name: req.body.name,
-							notificationType: "request"
+							name: req.body.name
 						}
 					}
 				}
 			);
-			var user = await users.findOne({ _id: req.body._id });
-			await user.notification.push({
-				profileId: req.user.email,
-				name: req.user.name,
-				notificationType: "accepted"
-			});
-			const getnotification = user.notification.filter(
-				obj => obj.profileId === req.user.email
-			);
-			if (getnotification.length === 1)
-				var user = await users.findOneAndUpdate(
-					{ _id: req.body._id },
-					{ $set: { notification: user.notification } }
+			if (acceptNot[0].notificationType === "request") {
+				var user = await users.findOne({ email: req.body.email });
+				await user.notification.push({
+					profileId: req.user.email,
+					name: req.user.name,
+					notificationType: "accepted"
+				});
+				const getnotification = user.notification.filter(
+					obj => obj.profileId === req.user.email
 				);
-
+				if (getnotification.length === 1)
+					var user = await users.findOneAndUpdate(
+						{ email: req.body.email },
+						{
+							$set: { notification: user.notification }
+						}
+					);
+			} else {
+				await users.findOneAndUpdate(
+					{ _id: req.user._id },
+					{
+						$push: {
+							friends: friend[0]
+						}
+					}
+				);
+				await users.findOneAndUpdate(
+					{ email: req.body.email },
+					{
+						$push: {
+							friends: req.user
+						}
+					}
+				);
+			}
 			res.send({ msg: " request succssesfully responded" });
 		} catch (err) {
 			throw err;
@@ -137,7 +161,7 @@ module.exports = {
 			msg: "success",
 			token: JWToken(user),
 			user: {
-				email:user.email,
+				email: user.email,
 				name: user.name,
 				_id: user._id,
 				image: user.image,

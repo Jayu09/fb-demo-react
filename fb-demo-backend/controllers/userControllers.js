@@ -45,12 +45,27 @@ module.exports = {
 		});
 	},
 	getList: async (req, res, next) => {
-		await users
-			.find({ email: { $ne: req.user.email } })
-			.then(user => res.send(user))
-			.catch(err => {
-				throw err;
-			});
+		const items = [];
+		req.user.friends.map(friend => {
+			items.push(friend.email);
+		});
+		items.push(req.user.email);
+		const userArray = await users.find(
+			{ email: { $nin: items } },
+			{ _id: -1, email: 1, name: 1, address: 1, contact: 1, image: 1 }
+		);
+		res.send(userArray);
+	},
+	getfriendList: async (req, res, next) => {
+		const items = [];
+		req.user.friends.map(friend => {
+			items.push(friend.email);
+		});
+		const userArray = await users.find(
+			{ email: { $in: items } },
+			{ _id: -1, email: 1, name: 1, address: 1, contact: 1, image: 1 }
+		);
+		res.send(userArray);
 	},
 	getSelect: async (req, res, next) => {
 		await users
@@ -85,8 +100,7 @@ module.exports = {
 		try {
 			friend = await users.find({ email: req.body.email });
 			const acceptNot = req.user.notification.filter(
-				obj =>
-					obj.profileId === req.body.email
+				obj => obj.profileId === req.body.email
 			);
 			await users.findOneAndUpdate(
 				{ _id: req.user._id },
@@ -121,7 +135,7 @@ module.exports = {
 					{ _id: req.user._id },
 					{
 						$push: {
-							friends: friend[0]
+							friends: { email: friend[0].email }
 						}
 					}
 				);
@@ -129,7 +143,7 @@ module.exports = {
 					{ email: req.body.email },
 					{
 						$push: {
-							friends: req.user
+							friends: { email: req.user.email }
 						}
 					}
 				);

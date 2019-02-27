@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Modal from "react-responsive-modal";
+
 import "../css/ProfileEdit.css";
 import userlogo from "../svg/user.svg";
 
@@ -33,7 +34,7 @@ class Profile extends Component {
 		const user = this.props.users;
 		const { open } = this.state;
 		return (
-			<div className="container mt-5 p-0">
+			<div className="container mt-5 p-auto">
 				<div>
 					{this.props.users ? (
 						<div>
@@ -64,8 +65,9 @@ class Profile extends Component {
 								</Modal>
 								<img
 									src={user.image ? "/images/" + user.image : userlogo}
-									className="App-profilePicture fixed-position mb-3"
-									height="100vh"
+									className="App-profilePicture fixed-position mb-3 rounded-circle"
+									height="130vh"
+									width="130vh"
 									alt="notification"
 									onClick={this.onOpenModal}
 								/>

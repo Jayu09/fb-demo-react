@@ -25,11 +25,11 @@ const commentSchema = mongoose.Schema({
 	date: {
 		type: Date,
 		default: Date.now
-  },
-  content: {
-    type: String,
-    require : true
-  }
+	},
+	content: {
+		type: String,
+		require: true
+	}
 });
 const postSchema = mongoose.Schema(
 	{
@@ -46,8 +46,8 @@ const postSchema = mongoose.Schema(
 		},
 		like: [userSchema],
 		comment: [commentSchema],
-		private: {
-			type: Boolean,
+		privacy: {
+			type: String,
 			default: false
 		},
 		date: {

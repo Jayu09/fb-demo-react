@@ -17,26 +17,12 @@ const notificationSchema = new schema({
 	}
 });
 const freindSchema = new schema({
-	name: {
-		type: String,
-		require: true
-	},
 	email: {
 		type: String,
 		require: true,
 		lowercase: true,
-		unique: true,
 		index: true
-	},
-	address: {
-		type: String
-	},
-	contact: {
-		type: String
-	},
-	image: {
-		type: String
-  }
+	}
 });
 const userSchema = new schema({
 	name: {
@@ -58,8 +44,8 @@ const userSchema = new schema({
 	},
 	image: {
 		type: String
-  },
-  friends:[freindSchema],
+	},
+	friends: [freindSchema],
 	notification: [notificationSchema],
 	password: {
 		type: String

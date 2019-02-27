@@ -15,7 +15,10 @@ class App extends Component {
 			<div>
 				<UserHeader className="mb-3" />
 				<div className="mt-5 bg-transparent ">
-					<div className="row justify-content-md-center bg-primary m-0 w-100 position-fixed">
+					<div
+						className="row justify-content-md-center bg-primary m-0 w-100 position-fixed"
+						style={{ backgroundImage: "linear-gradient(red, yellow)" }}
+					>
 						<div className="fixed-position col-2 m-0 p-0">
 							<Profile />
 						</div>

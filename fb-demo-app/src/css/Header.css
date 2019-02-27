@@ -18,6 +18,7 @@
 }
 .App-notification {
   height: 2rem;
+  width: 2rem;
 }
 @media screen and (max-width: 500px) {
   .header a {

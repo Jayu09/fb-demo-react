@@ -4,8 +4,6 @@
 	background: whitesmoke;
 }
 .App-profilePicture {
-	pointer-events: visibleFill;
-	right: 8px;
-	background: silver;
-	margin: auto;
+	border: "1px solid #ccc";
+	background: "#BA6262";
 }

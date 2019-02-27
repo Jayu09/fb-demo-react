@@ -27,6 +27,13 @@ router.get(
   userController.getList
 );
 
+
+router.get(
+  "/Friends",
+  JWTStrategy,
+  userController.getfriendList
+);
+
 router.post(
   "/Select",
   JWTStrategy,

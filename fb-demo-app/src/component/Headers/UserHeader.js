@@ -48,7 +48,6 @@ class UserHeader extends Component {
 			this.props.notification.map(notification => (
 				<ul key={notification._id} className="list-unstyled">
 					<li className="text-center">
-						{console.log(notification)}
 						<div className="col-sm-3 m-1">{notification.name}</div>
 						<button
 							className="btn btn-secondary"
@@ -76,7 +75,7 @@ class UserHeader extends Component {
 									alt={userlogo}
 								/>
 								<div className="m-1 col-sm-4">{user.name}</div>
-								<button
+								{/* <button
 									className="col-sm-4 p-0 m-0 btn btn-secondary"
 									type="submit"
 									onClick={this.sendRequest}
@@ -85,7 +84,7 @@ class UserHeader extends Component {
 									value={user.email}
 								>
 									Request
-								</button>
+								</button> */}
 							</div>
 						</div>
 					</li>
@@ -102,7 +101,12 @@ class UserHeader extends Component {
 				</nav>
 				<nav className="nav navbar-nav ml-auto ">
 					<div className="form-inline">
-						<div className="btn-group">
+						<div
+							className="btn-group"
+							data-toggle="dropdown"
+							aria-haspopup="true"
+							aria-expanded="false"
+						>
 							<input
 								type="text"
 								onChange={this.change}
@@ -112,15 +116,9 @@ class UserHeader extends Component {
 								name="name"
 								autoComplete="on"
 							/>
-							<button
-								type="submit"
-								className="btn btn-primary"
-								data-toggle="dropdown"
-								aria-haspopup="true"
-								aria-expanded="false"
-							>
+							{/* <button className="btn btn-primary">
 								Search
-							</button>
+							</button> */}
 							<div className="dropdown-menu overflow-auto" height="20px">
 								{Items}
 							</div>
@@ -129,7 +127,7 @@ class UserHeader extends Component {
 							<div className="btn-group">
 								<button
 									type="button"
-									className="m-2 badge bg-danger rounded-circle"
+									className="App-notification m-2 badge bg-danger rounded-circle"
 									data-toggle="dropdown"
 									aria-haspopup="true"
 									aria-expanded="false"

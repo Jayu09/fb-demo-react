@@ -31,15 +31,15 @@ module.exports = {
 			throw err;
 		}
 	},
-	seenPost: async (req, res, done) => {
+	likePost: async (req, res, done) => {
 		try {
 			var postres = await post.findOne({ _id: req.body.payload });
-			await postres.seen.push({ _id: req.user._id, name: req.user.name });
-			const getseen = postres.seen.filter(obj => obj.name === req.user.name);
-			if (getseen.length === 1)
+			await postres.like.push({ _id: req.user._id, name: req.user.name });
+			const getlike = postres.like.filter(obj => obj.name === req.user.name);
+			if (getlike.length === 1)
 				var postres = await post.findOneAndUpdate(
 					{ _id: req.body.payload },
-					{ $set: { seen: postres.seen } }
+					{ $set: { like: postres.like } }
 				);
 		} catch (err) {
 			throw err;

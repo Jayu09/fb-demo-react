@@ -22,8 +22,8 @@ router.get("/", JWTStrategy , postControllers.getPost);
 
 router.post("/", JWTStrategy , upload.single('image') , postControllers.addPost);
 
-router.post("/complete", JWTStrategy, postControllers.completePost);
+router.post("/comment", JWTStrategy, postControllers.completePost);
 
-router.post("/seen", JWTStrategy, postControllers.seenPost);
+router.post("/like", JWTStrategy, postControllers.seenPost);
 
 module.exports = router;

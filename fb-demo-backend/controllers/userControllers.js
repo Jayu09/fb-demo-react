@@ -130,7 +130,6 @@ module.exports = {
 							$set: { notification: user.notification }
 						}
 					);
-			} else {
 				await users.findOneAndUpdate(
 					{ _id: req.user._id },
 					{

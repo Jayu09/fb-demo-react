@@ -17,7 +17,8 @@ const initialState = {
 	id: "",
 	items: [],
   profile: {},
-  list: [],
+	list: [],
+	msg:'',
   notification:[]
 };
 
@@ -29,7 +30,8 @@ export default function(state = initialState, action) {
 				token: action.payload.token,
 				id: action.payload._id,
 				valid: false,
-				error: ""
+				error: "",
+				msg:action.payload.msg
 			};
 		case VERIFY_USER:
 			return {

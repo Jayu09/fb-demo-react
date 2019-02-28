@@ -5,7 +5,7 @@ import * as userapi from "../api/apiUsers";
 export function* addUser(action) {
 	try {
 		const api = yield effect.call(userapi.addUser, action.payload);
-		if (api) {
+		if (api.token) {
 			yield effect.put({ type: typ.SIGN_UP, payload: api });
 		} else {
 			yield effect.put({ type: typ.SIGNUP_ERROR, payload: api.msg });
@@ -55,7 +55,6 @@ export function* sendRequest(action) {
 }
 
 export function* responceRequest(action) {
-	console.log(action)
 	try {
 		yield effect.call(userapi.responceRequest, action.data);
 		yield effect.put({ type: typ.USER });

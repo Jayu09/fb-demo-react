@@ -3,8 +3,6 @@ const userUrl = "api/users";
 
 export async function addUser(data) {
 	const res = await axios.post("api/users/register", data);
-	if (res.data.token) {
-	}
 	return res.data;
 }
 

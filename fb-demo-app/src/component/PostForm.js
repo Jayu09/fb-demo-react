@@ -5,7 +5,7 @@ class PostForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			content: "content",
+			content: "",
 			image: "",
 			privacy: "public"
 		};
@@ -21,12 +21,17 @@ class PostForm extends Component {
 		this.setState({ [e.target.name]: e.target.value });
 	}
 	handleClick() {
-		const post = new FormData();
+		if(this.state.content || this.state.image)
+{		const post = new FormData();
 		post.append("content", this.state.content);
 		post.append("privacy", this.state.privacy);
 		post.append("image", this.state.image, this.state.image.name);
 		this.props.addPost(post);
-		window.location.reload();
+			window.location.reload();
+		}
+		else {
+			alert("Post Can not be null")
+		}
 	}
 	render() {
 		return (

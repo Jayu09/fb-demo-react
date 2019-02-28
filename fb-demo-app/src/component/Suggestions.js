@@ -17,9 +17,9 @@ class Suggestions extends Component {
 		const Items =
 			this.props.users &&
 			this.props.users.map(user => (
-				<ul key={user._id} className="list-unstyled p-0 m-1">
+				<ul key={user._id} className="list-unstyled p-0 m-1 bg-primary rounded">
 					<li>
-						<div className="bg-light p-0 ml-0 m-2">
+						<div className="bg-transparent">
 							<div className="row p-0 ml-0 my-2">
 								<img
 									height="30vh"
@@ -31,7 +31,7 @@ class Suggestions extends Component {
 								<div className="mr-1 col-sm-5">{user.name}</div>
 							</div>
 							<button
-								className="row p-0 m-0 btn btn-secondary"
+								className="row p-0 mx-5 btn btn-secondary"
 								type="submit"
 								onClick={this.sendRequest}
 								id={user.email}

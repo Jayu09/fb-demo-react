@@ -9,7 +9,7 @@ import Timeline from "../container/Timeline";
 import "../css/App-Content.css";
 import "../css/App.css";
 
-class UserScreen extends Component {
+class  ProfileScreen extends Component {
 	render() {
 		return (
 			<div>
@@ -22,7 +22,7 @@ class UserScreen extends Component {
 						<div className="fixed-position col-2 m-0 p-0">
 							<Profile />
 						</div>
-						<div className="col-8 UserScreen-middle">
+						<div className="col-8 App-middle">
 							<PostForm className="row fixed-position" />
 							<Timeline className="row fixed-position" />
 						</div>
@@ -35,4 +35,4 @@ class UserScreen extends Component {
 		);
 	}
 }
-export default UserScreen;
+export default  ProfileScreen;

@@ -24,19 +24,10 @@ export default class TimeLine extends Component {
 	render() {
 		const Items = this.props.posts.map(post => (
 			<ul key={post._id} className="list-unstyled">
-				<li><button
-									className="col-auto p-0 m-0 btn btn-secondary"
-									type="submit"
-									onClick={this.sendRequest}
-									id={user.email}
-									name={user.name}
-									value={user._id}
-								>
-									Request
-								</button>
-					<fieldset className="row mb-3 bg-light">
+				<li>
+					<fieldset className="row mb-3 bg-light rounded">
 						<div className=" bg-light mx-4 mt-2">
-							<div className="row border rounded my-1 pl-1" width="100%">
+							<div className="row border rounded my-1 pl-1">
 								<img
 									height="30vh"
 									width="30vh"

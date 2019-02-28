@@ -2,9 +2,6 @@ import { connect } from "react-redux";
 import Post from "../component/Timeline";
 
 const mapStateToProps = state => ({
-  users: state.users.valid,
-  type: state.users.type,
-  usersid: state.users.id,
   posts: state.posts.items
 });
 

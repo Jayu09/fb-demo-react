@@ -43,7 +43,8 @@ const userSchema = new schema({
 		type: String
 	},
 	image: {
-		type: String
+		type: String,
+		default: "postImages/user.svg"
 	},
 	friends: [freindSchema],
 	notification: [notificationSchema],

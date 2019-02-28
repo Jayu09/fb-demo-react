@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Modal from "react-responsive-modal";
 
 import "../css/ProfileEdit.css";
-import userlogo from "../svg/user.svg";
 
 import ProfileEdit from "./ProfileEdit";
 
@@ -64,11 +63,12 @@ class Profile extends Component {
 									</button>
 								</Modal>
 								<img
-									src={user.image ? "/images/" + user.image : userlogo}
+									src={"/images/" + user.image}
 									className="App-profilePicture fixed-position mb-3 rounded-circle"
 									height="130vh"
 									width="130vh"
 									alt="notification"
+									style={{overflow :" hidden"}}
 									onClick={this.onOpenModal}
 								/>
 							</div>

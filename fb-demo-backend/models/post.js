@@ -4,6 +4,9 @@ const userSchema = mongoose.Schema({
 		type: String,
 		require: true
 	},
+	authorImage: {
+		type: String
+	},
 	name: {
 		type: String,
 		require: true
@@ -37,11 +40,18 @@ const postSchema = mongoose.Schema(
 			type: String,
 			require: true
 		},
+		authorName: {
+			type: String,
+			require: true
+		},
 		content: {
 			type: String,
 			require: true
 		},
 		image: {
+			type: String
+		},
+		authorImage: {
 			type: String
 		},
 		like: [userSchema],

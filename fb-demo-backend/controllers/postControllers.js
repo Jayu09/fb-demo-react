@@ -24,6 +24,8 @@ module.exports = {
 		const newPost = new post(req.body);
 		try {
 			newPost.profileId = req.user.email;
+			newPost.authorImage = req.user.image;
+			newPost.authorName = req.user.name;
 			if (req.file) newPost.image = req.file.path;
 			await newPost.save();
 			res.send(newPost);

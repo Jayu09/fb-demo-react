@@ -17,7 +17,7 @@ class App extends Component {
 				<div className="mt-5 bg-transparent ">
 					<div
 						className="row justify-content-md-center bg-primary m-0 w-100 position-fixed"
-						style={{ backgroundImage: "linear-gradient(red, yellow)" }}
+						style={{ backgroundImage: "linear-gradient(blue,indigo)" }}
 					>
 						<div className="fixed-position col-2 m-0 p-0">
 							<Profile />
@@ -26,7 +26,7 @@ class App extends Component {
 							<PostForm className="row fixed-position" />
 							<Timeline className="row fixed-position" />
 						</div>
-						<div className="col-2 overflow-auto">
+						<div className="col-2 m-0 p-0">
 							<Suggestions className="row" />
 						</div>
 					</div>

@@ -24,10 +24,29 @@ export default class TimeLine extends Component {
 	render() {
 		const Items = this.props.posts.map(post => (
 			<ul key={post._id} className="list-unstyled">
-				<li>
+				<li><button
+									className="col-auto p-0 m-0 btn btn-secondary"
+									type="submit"
+									onClick={this.sendRequest}
+									id={user.email}
+									name={user.name}
+									value={user._id}
+								>
+									Request
+								</button>
 					<fieldset className="row mb-3 bg-light">
-						<div className=" bg-light m-4">
-							<blockquote className="blockquote text-center">
+						<div className=" bg-light mx-4 mt-2">
+							<div className="row border rounded my-1 pl-1" width="100%">
+								<img
+									height="30vh"
+									width="30vh"
+									src={"/images/" + post.authorImage}
+									alt="notification"
+									className="rounded-circle overflow-hidden"
+								/>
+								<p className="mx-2" >{post.authorName}</p>
+							</div>
+							<blockquote className="blockquote text-center m-2 p-2 border rounded">
 								{post.image ? (
 									<img
 										height="100vh"
@@ -43,7 +62,7 @@ export default class TimeLine extends Component {
 			</ul>
 		));
 		return (
-			<div className="align-self-center container App-TimeLine overflow-auto">
+			<div className="align-self-center container mt-3 App-TimeLine overflow-auto">
 				{Items}
 			</div>
 		);

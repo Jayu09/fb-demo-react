@@ -17,37 +17,36 @@ class Suggestions extends Component {
 		const Items =
 			this.props.users &&
 			this.props.users.map(user => (
-				<ul key={user._id} className="list-unstyled ">
+				<ul key={user._id} className="list-unstyled p-0 m-1">
 					<li>
-						<div className="bg-light">
-							<div className="row  p-0">
+						<div className="bg-light p-0 ml-0 m-2">
+							<div className="row p-0 ml-0 my-2">
 								<img
 									height="30vh"
 									width="30vh"
 									src={user.image ? "/images/" + user.image : userlogo}
-									className="m-auto rounded-circle col-sm-3"
+									className="ml-0 rounded-circle col-sm-4"
 									alt={userlogo}
 								/>
-
-								<div className="m-1 col-sm-4">{user.name}</div>
-								<button
-									className="col-sm-4 p-0 m-0 btn btn-secondary"
-									type="submit"
-									onClick={this.sendRequest}
-									id={user.email}
-									name={user.name}
-									value={user._id}
-								>
-									Request
-								</button>
+								<div className="mr-1 col-sm-5">{user.name}</div>
 							</div>
+							<button
+								className="row p-0 m-0 btn btn-secondary"
+								type="submit"
+								onClick={this.sendRequest}
+								id={user.email}
+								name={user.name}
+								value={user._id}
+							>
+								Request
+							</button>
 						</div>
 					</li>
 				</ul>
 			));
 		return (
 			<div
-				className="align-self-center bg-transparent container mt-5 overflow-auto  App-Suggestions"
+				className="align-self-center bg-transparent container mt-5 overflow-auto pl-0 ml-0"
 				opacity="0.5"
 			>
 				{Items}
